@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iqr_4b_bringup</name>
+  <version>0.3.0</version>
+  <description>The iqr_4b_bringup package</description>
+
+  <author email="yanlei@iquotient-robot.com">QuartzYan</author>
+  <maintainer email="yanlei@iquotient-robot.com">QuartzYan</maintainer>
+
+  <!-- LICENSE -->
+  <license>MIT</license>
+
+  <!-- DEPEND -->
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <exec_depend>jackal_base</exec_depend>
+  <exec_depend>kinova_driver</exec_depend>
+  <exec_depend>velodyne_puck</exec_depend>
+  <exec_depend>kinect2_bridge</exec_depend>
+  <exec_depend>pan_tilt_driver</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
