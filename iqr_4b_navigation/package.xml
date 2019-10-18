@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>iqr_4b_bringup</name>
-  <version>0.3.0</version>
-  <description>The iqr_4b_bringup package</description>
+  <name>iqr_4b_navigation</name>
+  <version>0.0.0</version>
+  <description>The iqr_4b_navigation package</description>
 
   <author email="yanlei@iquotient-robot.com">QuartzYan</author>
   <maintainer email="yanlei@iquotient-robot.com">QuartzYan</maintainer>
@@ -10,11 +10,7 @@
   <!-- LICENSE -->
   <license>MIT</license>
 
-  <!-- DEPEND -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>std_msgs</build_depend>
-  <build_export_depend>std_msgs</build_export_depend>
-  <exec_depend>std_msgs</exec_depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

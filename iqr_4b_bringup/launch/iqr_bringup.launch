@@ -17,16 +17,17 @@
   </include-->
 
   <!-- VLP16 -->
-  <include file="$(find velodyne_puck)/launch/run.launch">
-    <arg name="driver" default="true"/>
+  <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
     <arg name="device_ip" default="192.168.1.7" />
-    <arg name="frame_id" default="laser"/>
+    <arg name="frame_id" default="velodyne"/>
+    <arg name="max_range" default="100.0" />
+    <arg name="rpm" default="1200" />
   </include>
 
   <!-- Kinect 2.0 -->
-  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+  <!-- <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
     <arg name="publish_tf" default="true"/>
-  </include>
+  </include> -->
 
   <!-- IQR PAN_TILT -->
   <node name="iqr" pkg="pan_tilt_driver" type="PanTiltDriverNode" output="screen">

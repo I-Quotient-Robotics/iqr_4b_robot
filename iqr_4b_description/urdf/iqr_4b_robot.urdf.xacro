@@ -40,6 +40,6 @@
   </xacro:kinect_v2>
 
   <!-- Kinova jaco j2n6s300 -->
-  <xacro:j2n6s300  base_parent="arm_mount_link"/>
+  <!--xacro:j2n6s300  base_parent="arm_mount_link"/-->
 
 </robot>
