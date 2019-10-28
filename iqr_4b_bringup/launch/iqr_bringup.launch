@@ -10,24 +10,24 @@
   <include file="$(find iqr_4b_bringup)/launch/include/jackal.launch.xml">
   </include>
 
-  <!-- KINOVA J2N4S200 -->
-  <!--include file="$(find iqr_4b_bringup)/launch/include/kinova.launch.xml">
+  <!-- KINOVA J2N6S300 -->
+  <include file="$(find iqr_4b_bringup)/launch/include/kinova.launch.xml">
     <arg name="use_urdf" default="false"/>
     <arg name="kinova_robotType" default="j2n6s300" />
-  </include-->
+  </include>
 
   <!-- VLP16 -->
   <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch">
     <arg name="device_ip" default="192.168.1.7" />
     <arg name="frame_id" default="velodyne"/>
     <arg name="max_range" default="100.0" />
-    <arg name="rpm" default="1200" />
+    <arg name="rpm" default="600" />
   </include>
 
   <!-- Kinect 2.0 -->
-  <!-- <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
     <arg name="publish_tf" default="true"/>
-  </include> -->
+  </include>
 
   <!-- IQR PAN_TILT -->
   <node name="iqr" pkg="pan_tilt_driver" type="PanTiltDriverNode" output="screen">

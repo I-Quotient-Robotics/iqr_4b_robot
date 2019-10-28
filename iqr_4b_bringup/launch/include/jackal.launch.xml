@@ -15,6 +15,7 @@
           - wifi_connected
     </rosparam>
     <param name="wireless_interface" value="$(optenv JACKAL_WIRELESS_INTERFACE wlp58s0)" />
+    <remap from="/feedback" to="/jackal/feedback" />
   </node>
 
    <!-- TODO: Eliminate this by compiling the necessary message definitions into jackal_base. -->

@@ -26,17 +26,17 @@
     </group>
     <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
     <group_state name="home" group="arm">
-        <joint name="j2n6s300_joint_1" value="1.5707" />
-        <joint name="j2n6s300_joint_2" value="5.4" />
-        <joint name="j2n6s300_joint_3" value="5.8" />
+        <joint name="j2n6s300_joint_1" value="-1.5707" />
+        <joint name="j2n6s300_joint_2" value="1" />
+        <joint name="j2n6s300_joint_3" value="0.75" />
         <joint name="j2n6s300_joint_4" value="0" />
         <joint name="j2n6s300_joint_5" value="0" />
         <joint name="j2n6s300_joint_6" value="0" />
     </group_state>
     <group_state name="up" group="arm">
-        <joint name="j2n6s300_joint_1" value="1.5707" />
-        <joint name="j2n6s300_joint_2" value="4.7122" />
-        <joint name="j2n6s300_joint_3" value="5.4" />
+        <joint name="j2n6s300_joint_1" value="-1.5707" />
+        <joint name="j2n6s300_joint_2" value="1.5707" />
+        <joint name="j2n6s300_joint_3" value="0.75" />
         <joint name="j2n6s300_joint_4" value="1.5707" />
         <joint name="j2n6s300_joint_5" value="0" />
         <joint name="j2n6s300_joint_6" value="0" />
@@ -55,6 +55,13 @@
     <end_effector name="end_effector" parent_link="j2n6s300_end_effector" group="gripper" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link" />
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="front_left_wheel" />
+    <passive_joint name="front_right_wheel" />
+    <passive_joint name="rear_left_wheel" />
+    <passive_joint name="rear_right_wheel" />
+    <passive_joint name="pan_tilt_yaw_joint" />
+    <passive_joint name="pan_tilt_pitch_joint" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="chassis_link" link2="front_fender_link" reason="Adjacent" />
     <disable_collisions link1="chassis_link" link2="front_left_wheel_link" reason="Adjacent" />
@@ -208,11 +215,15 @@
     <disable_collisions link1="j2n6s300_link_base" link2="vlp16_link" reason="Never" />
     <disable_collisions link1="j2n6s300_link_base" link2="zed_link" reason="Never" />
     <disable_collisions link1="j2n6s300_link_finger_1" link2="j2n6s300_link_finger_tip_1" reason="Adjacent" />
+    <disable_collisions link1="j2n6s300_link_finger_1" link2="pan_tilt_base_link" reason="Never" />
     <disable_collisions link1="j2n6s300_link_finger_2" link2="j2n6s300_link_finger_3" reason="Never" />
     <disable_collisions link1="j2n6s300_link_finger_2" link2="j2n6s300_link_finger_tip_2" reason="Adjacent" />
     <disable_collisions link1="j2n6s300_link_finger_2" link2="j2n6s300_link_finger_tip_3" reason="Never" />
     <disable_collisions link1="j2n6s300_link_finger_3" link2="j2n6s300_link_finger_tip_2" reason="Never" />
     <disable_collisions link1="j2n6s300_link_finger_3" link2="j2n6s300_link_finger_tip_3" reason="Adjacent" />
+    <disable_collisions link1="j2n6s300_link_finger_3" link2="pan_tilt_pitch_link" reason="Never" />
+    <disable_collisions link1="j2n6s300_link_finger_tip_1" link2="pan_tilt_base_link" reason="Never" />
+    <disable_collisions link1="j2n6s300_link_finger_tip_2" link2="pan_tilt_base_link" reason="Never" />
     <disable_collisions link1="jackal_support_link" link2="kinect_v2_link" reason="Never" />
     <disable_collisions link1="jackal_support_link" link2="navsat_link" reason="Never" />
     <disable_collisions link1="jackal_support_link" link2="pan_tilt_base_link" reason="Adjacent" />
