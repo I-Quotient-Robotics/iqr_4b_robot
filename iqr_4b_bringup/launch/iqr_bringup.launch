@@ -1,10 +1,13 @@
 <?xml version="1.0"?>
 <launch>
 
+  <arg name="config" default="base"/>
+  <!-- fix for oneweek project -->
+  <arg name="env_runner" value="$(eval 'env_run' if not optenv('OS', 'unknown').lower().startswith('windows') else 'env_run.bat')"/>
   <!-- Robot Description -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find iqr_4b_description)/urdf/iqr_4b_robot.urdf.xacro" />
-  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /-->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find iqr_4b_description)/urdf/iqr_4b_robot.urdf.xacro"/>
+  <!--node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
   <!-- JACKAL -->
   <include file="$(find iqr_4b_bringup)/launch/include/jackal.launch.xml">
@@ -34,6 +37,21 @@
     <param name="port_name" value="/dev/pan_tilt"/>
     <param name="yaw_joint_name" value="pan_tilt_yaw_joint"/>
     <param name="pitch_joint_name" value="pan_tilt_pitch_joint"/>
+  </node>
+
+  <!-- Robot pose ekf -->
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+    <param name="output_frame" value="odom"/>
+    <param name="base_footprint_frame" value="base_link"/>
+    <param name="freq" value="50.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    <remap from="imu_data" to="/imu/data"/>
+    <remap from="odom" to="/jackal_velocity_controller/odom"/>
   </node>
 
 </launch>
